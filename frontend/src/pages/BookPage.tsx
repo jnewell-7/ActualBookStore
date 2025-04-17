@@ -14,7 +14,9 @@ function BookPage() {
 
   useEffect(() => {
     if (bookId) {
-      fetch(`https://localhost:5000/Book/GetBookByID?bookID=${bookId}`)
+      fetch(
+        `https://bookstore-backend-hdg9etazb2fkf3gy.centralus-01.azurewebsites.net/Book/GetBookByID?bookID=${bookId}`
+      )
         .then((response) => response.json())
         .then((data: Book) => setBook(data))
         .catch((err) => console.error('Error fetching book:', err));
