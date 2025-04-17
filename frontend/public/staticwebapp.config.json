@@ -2,5 +2,14 @@
   "mimeTypes": {
     ".js": "application/javascript",
     ".mjs": "application/javascript"
+  },
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/static/*", "/assets/*", "/*.css", "/*.js", "/*.ico", "/*.png"]
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html"
+    }
   }
 }
