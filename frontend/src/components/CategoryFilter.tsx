@@ -10,7 +10,7 @@ function CategoryFilter({
 }) {
   const [categories, setCategories] = useState<string[]>([]);
 
-  const API_URL = `https://bookstore-front-tryagain-ejceeydaecasada2.centralus-01.azurewebsites.net/Book`;
+  const API_URL = `https://bookstore-backend-hdg9etazb2fkf3gy.centralus-01.azurewebsites.net/Book`;
 
   useEffect(() => {
     const fetchCategories = async () => {

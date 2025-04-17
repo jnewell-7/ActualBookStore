@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:3000", "https://jolly-island-020e61710.6.azurestaticapps.net")
+        policy.WithOrigins("http://localhost:3000", "https://black-meadow-083eba310.6.azurestaticapps.net")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials(); // Allow credentials
