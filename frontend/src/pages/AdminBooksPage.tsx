@@ -13,11 +13,12 @@ const AdminPage = () => {
   const [pageNum, setPageNum] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [showForm, setShowForm] = useState(false);
-  const [editingBook, setEditingBook] = useState<Book | null>(null); // For edit functionality
+  const [editingBook, setEditingBook] = useState<Book | null>(null);
 
   useEffect(() => {
     const loadBooks = async () => {
       try {
+        setLoading(true);
         const data = await fetchBooks(pageSize, pageNum, []);
         setBooks(data.books);
         setTotalPages(Math.ceil(data.totalNumBooks / pageSize));
@@ -63,12 +64,12 @@ const AdminPage = () => {
       {showForm && (
         <NewBookForm
           onSuccess={() => {
-            setShowForm(false); // Hide the form after successful submission
+            setShowForm(false);
             fetchBooks(pageSize, pageNum, []).then((data) =>
               setBooks(data.books)
             );
           }}
-          onCancel={() => setShowForm(false)} // Allow user to cancel the form
+          onCancel={() => setShowForm(false)}
         />
       )}
 
@@ -76,7 +77,7 @@ const AdminPage = () => {
         <EditBookForm
           book={editingBook}
           onSuccess={() => {
-            setEditingBook(null); // Clear editing Book after success
+            setEditingBook(null);
             fetchBooks(pageSize, pageNum, []).then((data) =>
               setBooks(data.books)
             );
@@ -119,10 +120,9 @@ const AdminPage = () => {
                 >
                   Edit
                 </button>
-
                 <button
                   className="btn btn-danger btn-sm w-100 mb-1"
-                  onClick={() => handleDelete(b.bookID)} // Handle delete
+                  onClick={() => handleDelete(b.bookID)}
                 >
                   Delete
                 </button>
@@ -131,6 +131,7 @@ const AdminPage = () => {
           ))}
         </tbody>
       </table>
+
       <Pagination
         currentPage={pageNum}
         totalPages={totalPages}
