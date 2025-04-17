@@ -15,7 +15,7 @@ function BookPage() {
   useEffect(() => {
     if (bookId) {
       fetch(
-        `https://bookstore-front-tryagain-ejceeydaecasada2.centralus-01.azurewebsites.net/Book/GetBookByID?bookID=${bookId}`
+        `https://bookstore-backend-hdg9etazb2fkf3gy.centralus-01.azurewebsites.net/Book/GetBookByID?bookID=${bookId}`
       )
         .then((response) => response.json())
         .then((data: Book) => setBook(data))
