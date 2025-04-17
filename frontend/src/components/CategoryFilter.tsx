@@ -15,7 +15,9 @@ function CategoryFilter({
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch(`${API_URL}/GetBookCategories`);
+        const response = await fetch(`${API_URL}/GetBookCategories`, {
+          credentials: 'include',
+        });
         const data = await response.json();
         console.log('Fetched categories:', data);
         setCategories(data);

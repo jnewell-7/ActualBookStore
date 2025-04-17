@@ -33,9 +33,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
 app.UseCors("AllowFrontend");
 
+app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
